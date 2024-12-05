@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './nav.css'
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../AuthProvider';
 const Navbar = () => {
+  const { user,handleLogOut } = useContext(AuthContext);
+  
   return (
     <div className="navbar bg-gray-900  text-gray-300">
   <div className="navbar-start">
@@ -31,7 +34,7 @@ const Navbar = () => {
         <NavLink to="myDonations">My Donations</NavLink>
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">Logo</a>
+    <div><img className='h-12 w-12 rounded-full' src="https://i.ibb.co.com/kByzcS7/DALL-E-2024-12-04-20-36-53-A-professional-and-minimalist-circular-logo-for-a-crowdfunding-website-na.webp" alt="" /></div>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1 gap-6 font-semibold">
@@ -43,8 +46,13 @@ const Navbar = () => {
         <NavLink to="myDonations">My Donations</NavLink>
     </ul>
   </div>
-  <div className="navbar-end">
-    <a className="btn">Login</a>
+      <div className="navbar-end">
+     {user && user?.email ? (
+          <Link to="/" onClick={handleLogOut} className="btn btn-info">Log out</Link>
+        ) : (
+          <Link to="/login" className="btn btn-info">Login</Link>
+        )}
+  
   </div>
 </div>
   );
