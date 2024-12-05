@@ -1,11 +1,12 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
-import { useFetcher } from "react-router-dom";
+import { Navigate, useFetcher, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Components/AuthProvider";
 
 const Login = () => {
-
-
+const navigate=useNavigate()
+const {handleSignIn,setUser}=useContext(AuthContext)
   const emailRef = useRef();
   const passRef=useRef()
   const [valid,setValid]=useState("")
@@ -20,6 +21,14 @@ const Login = () => {
       return setValid("Password must contain at least 6 characters, including one uppercase and one lowercase letter.")
       // sed data to backend
     }
+    handleSignIn(email, password)
+      .then(result => {
+        const user = result.user;
+          setUser(user);
+         navigate(location?.state?location.state:"/")
+      }).catch(error => {
+      console.log(error)
+    })
   }
   const handleLoginWithGoogle = () => {
   

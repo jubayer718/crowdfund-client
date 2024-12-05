@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import './nav.css'
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider';
+import { FaUserCircle } from 'react-icons/fa';
 const Navbar = () => {
   const { user,handleLogOut } = useContext(AuthContext);
   
@@ -41,17 +42,26 @@ const Navbar = () => {
       <NavLink to="/">Home</NavLink>
       <NavLink to="allCampaign">All Campaign</NavLink>
       
-        <NavLink to="addCampaign">Add New Campaign</NavLink>
+        <NavLink to="addCampaign">Add New Campaign</NavLink> 
         <NavLink to="myCampaign">My  Campaign</NavLink>
         <NavLink to="myDonations">My Donations</NavLink>
     </ul>
   </div>
       <div className="navbar-end">
-     {user && user?.email ? (
-          <Link to="/" onClick={handleLogOut} className="btn btn-info">Log out</Link>
+    {/* User Profile & Login/Logout */}
+      <div className='flex items-center gap-4'>
+        {user && user?.email ? (
+          <div><img className="w-10 h-10 rounded-full" src={user.photoURL} alt="User Profile" /></div>
         ) : (
-          <Link to="/login" className="btn btn-info">Login</Link>
+          <FaUserCircle className='w-12 h-10' />
         )}
+
+        {user && user?.email ? (
+          <Link to="/" onClick={handleLogOut} className="btn btn-neutral">Log out</Link>
+        ) : (
+          <NavLink to="/login" className="btn btn-neutral">Login</NavLink>
+        )}
+      </div>
   
   </div>
 </div>
