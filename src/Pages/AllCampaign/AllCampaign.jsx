@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useLoaderData, useNavigate } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 
 const AllCampaign = () => {
   const navigate = useNavigate();
   const loadedCampaigns = useLoaderData();
   const [campaigns, setCampaigns] = useState(loadedCampaigns);
-
+console.log(campaigns)
   const handleSeeMore = (id) => {
     // Redirect to the campaign details page
     navigate(`/campaign/${id}`);
@@ -53,8 +53,9 @@ const AllCampaign = () => {
               <td style={cellStyle}>{campaign.startedDate}</td>
               <td style={cellStyle}>{campaign.deadline}</td>
               <td style={cellStyle}>
-                <button
-                  onClick={() => handleSeeMore(campaign._id)}
+                <Link
+                  to={`/campaign/${campaign._id}`}
+                  // to="/campaign"
                   style={{
                     backgroundColor: '#4CAF50',
                     color: 'white',
@@ -69,7 +70,7 @@ const AllCampaign = () => {
                   onMouseLeave={(e) => (e.target.style.backgroundColor = '#4CAF50')}
                 >
                   See More
-                </button>
+                </Link>
               </td>
             </tr>
           ))}

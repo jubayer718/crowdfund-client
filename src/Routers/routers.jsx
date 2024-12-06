@@ -8,6 +8,7 @@ import MyCampaign from "../Pages/MyCampaign/MyCampaign";
 import PrivateRoute from "../Components/PrivateRoute";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import DetailsPage from "../Details/Details";
 
 const routes = createBrowserRouter([
   {
@@ -37,13 +38,23 @@ const routes = createBrowserRouter([
         element: <PrivateRoute>
           <MyDonation></MyDonation>
         </PrivateRoute>
-      }, {
+      },
+      {
+        path: "campaign/:_id",
+        element: <PrivateRoute>
+          <DetailsPage></DetailsPage>
+        </PrivateRoute>,
+          loader:({params})=>fetch(`http://localhost:5000/campaign/${params._id}`)
+      },
+      {
         path: "/login",
         element:<Login></Login>
       }, {
         path: "/register",
         element:<Register></Register>
-      }
+      }, 
+        
+      
     ]
   }
 ])
