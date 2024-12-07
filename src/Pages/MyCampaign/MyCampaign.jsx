@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { AuthContext } from '../../Components/AuthProvider';
+import { Link } from 'react-router-dom';
 
 const MyCampaign = () => {
   const { user } = useContext(AuthContext); // Get the user's email from the context
@@ -22,7 +23,11 @@ const MyCampaign = () => {
         }
         return res.json();
       })
-      .then(data => setCampaigns(data))
+      .then(data =>
+        
+        
+        
+        setCampaigns(data))
       .catch(error => console.error('Error fetching campaigns:', error));
   }, [email]);
 
@@ -33,12 +38,14 @@ const MyCampaign = () => {
   {campaigns.length > 0 ? (
     <table className="table table-zebra w-full text-left">
       <thead>
-        <tr>
+        <tr className='bg-green-600 text-white'>
           <th className="p-2 text-lg font-semibold">Title</th>
           <th className="p-2 text-lg font-semibold">Type</th>
           <th className="p-2 text-lg font-semibold">Description</th>
           <th className="p-2 text-lg font-semibold">Min Donation</th>
           <th className="p-2 text-lg font-semibold">Deadline</th>
+          <th className="p-2 text-lg font-semibold">Update</th>
+          <th className="p-2 text-lg font-semibold">Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -49,6 +56,8 @@ const MyCampaign = () => {
             <td className="p-2">{campaign.description}</td>
             <td className="p-2">{campaign.minDonation}</td>
             <td className="p-2">{campaign.deadline}</td>
+            <td><Link to={`/campaign/update/${campaign._id}`} className='btn text-white bg-green-500'>Update</Link></td>
+            <td><button className='btn text-white bg-orange-700'>Delete</button></td>
           </tr>
         ))}
       </tbody>

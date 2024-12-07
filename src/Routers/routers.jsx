@@ -9,6 +9,7 @@ import PrivateRoute from "../Components/PrivateRoute";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import DetailsPage from "../Details/Details";
+import UpdatePage from "../Pages/Update/UpdatePage";
 
 const routes = createBrowserRouter([
   {
@@ -45,6 +46,12 @@ const routes = createBrowserRouter([
           <DetailsPage></DetailsPage>
         </PrivateRoute>,
           loader:({params})=>fetch(`http://localhost:5000/campaign/${params._id}`)
+      }, {
+        path: "/campaign/update/:id",
+        element: <PrivateRoute>
+          <UpdatePage></UpdatePage>
+        </PrivateRoute>,
+        loader:({params})=>fetch(`http://localhost:5000/campaign/update/${params.id}`)
       },
       {
         path: "/login",

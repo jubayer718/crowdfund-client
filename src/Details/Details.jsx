@@ -53,7 +53,8 @@ console.log(campaign)
   <div className="card-body">
     <h1><strong>Title:</strong> {campaign?.title}</h1>
              <p><strong>Description:</strong> {campaign?.description}</p>
-             <p><strong>Start Date:</strong> {campaign?.startedDate}</p>
+          <p><strong>Start Date:</strong> {campaign?.startedDate}</p>
+          <p><strong>Min Donation:</strong>{ campaign?.minDonation}</p>
              <p><strong>End Date:</strong> {campaign?.deadline}</p>
              <p><strong>Created By:</strong> {campaign?.email}</p>
     <div className="card-actions justify-end">
