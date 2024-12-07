@@ -22,7 +22,7 @@ const AddCampaign = () => {
     email: user?.email,
     name: user?.displayName,
   });
-
+console.log(formData)
   //  Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;

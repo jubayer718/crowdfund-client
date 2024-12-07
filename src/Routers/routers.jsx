@@ -32,7 +32,7 @@ const routes = createBrowserRouter([
         path: '/myCampaign',
         element: <PrivateRoute>
           <MyCampaign></MyCampaign>
-        </PrivateRoute>
+        </PrivateRoute>,
       }, {
         path: '/myDonations',
         element: <PrivateRoute>
