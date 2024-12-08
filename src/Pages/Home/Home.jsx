@@ -13,7 +13,15 @@ const Home = () => {
       try {
         const response = await fetch("https://crowdcube-server-tau.vercel.app/campaign");  
         const data = await response.json();
-        setCampaigns(data);
+const currentDate = new Date(); // Get the current date
+
+      // Filter campaigns where the deadline is still in the future
+      const runningCampaigns = data.filter(campaign => 
+        new Date(campaign.deadline) > currentDate
+      );
+
+      console.log(runningCampaigns);
+      setCampaigns(runningCampaigns);
       } catch (error) {
         console.error("Error fetching running campaigns:", error);
       }
@@ -136,7 +144,7 @@ const Home = () => {
               className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
             >
               <img
-                src={campaign.image}
+                src={campaign.thumbnail}
                 alt={campaign.title}
                 className="w-full h-48 object-cover"
               />
@@ -152,7 +160,7 @@ const Home = () => {
                   <p>Raised: ${campaign.raised}</p>
                   <p>Deadline: {new Date(campaign.deadline).toLocaleDateString()}</p>
                 </div>
-                <button className="btn btn-primary w-full">See More</button>
+                <Link to={`/campaign/${campaign?._id}`} className="btn btn-primary w-full">See More</Link>
               </div>
             </div>
           ))}
