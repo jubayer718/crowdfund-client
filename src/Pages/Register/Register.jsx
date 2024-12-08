@@ -27,7 +27,7 @@ const [showPassword,setShowPassword]=useState(false)
     const photo =form.photo.value
     const email = form.email.value
     const password = form.password.value
-    console.log(name,photo,email,password)
+    // console.log(name,photo,email,password)
     if (!passValid.test(password)) {
      return setValid("Password must contain at least 6 characters, including one uppercase and one lowercase letter.")
     

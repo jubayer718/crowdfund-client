@@ -2,10 +2,14 @@ import React, { useEffect, useState, useContext } from 'react';
 import { AuthContext } from '../../Components/AuthProvider';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import Loading from '../../Loading/Loading';
 
 const MyCampaign = () => {
-  const { user } = useContext(AuthContext); // Get the user's email from the context
-
+  
+  const { user,loading } = useContext(AuthContext); // Get the user's email from the context
+  if (loading) {
+  return <Loading></Loading>
+}
   const email = user?.email; // Replace with actual method to get the email dynamically
   const [campaigns, setCampaigns] = useState([]);
  
@@ -35,7 +39,7 @@ const MyCampaign = () => {
 
 
   const handleDelete = (_id) => {
-     console.log(_id)
+    //  console.log(_id)
 Swal.fire({
   title: "Are you sure?",
   text: "You won't be able to revert this!",
@@ -49,7 +53,7 @@ Swal.fire({
     fetch(`https://crowdcube-server-tau.vercel.app/campaign/${_id}`,{method:'DELETE'})
       .then(res => res.json())
       .then(data => {
-        console.log(data)
+        // console.log(data)
         if(data.deletedCount>0
         ) {
       
@@ -106,7 +110,7 @@ Swal.fire({
         ))}
       </tbody>
     </table>
-  ) : (
+      ) : {loading}?(<Loading></Loading>):(
     <p className="text-center text-lg text-gray-600 mt-4">No campaigns found.</p>
   )}
 </div>

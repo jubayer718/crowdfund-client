@@ -7,9 +7,9 @@ const UpdatePage = () => {
   const { user } = useContext(AuthContext)
   const {id}=useParams()
   const singleDataForUpdate = useLoaderData();
-  console.log(singleDataForUpdate)
+  // console.log(singleDataForUpdate)
     const [update, setUpdate] = useState(singleDataForUpdate);
-console.log(update)
+// console.log(update)sss
 // State for form data
   const [formData, setFormData] = useState({
     thumbnail:update?.thumbnail,
@@ -45,7 +45,7 @@ console.log(update)
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data)
+        // console.log(data)
         if (data.modifiedCount>0){
           Swal.fire({
             title: 'success!',

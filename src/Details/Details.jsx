@@ -42,7 +42,7 @@ const DetailsPage = () => {
         }
     })
   }
-console.log(campaign)
+// console.log(campaign)
     return (
       
       <div className="card card-side my-12 flex flex-col  lg:flex-row bg-base-100 border-2 border-gray-400">

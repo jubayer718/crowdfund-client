@@ -22,7 +22,7 @@ const AddCampaign = () => {
     email: user?.email,
     name: user?.displayName,
   });
-console.log(formData)
+// console.log(formData)
   //  Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -57,7 +57,7 @@ console.log(formData)
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data)
+        // console.log(data)
         if (data.insertedId) {
           Swal.fire({
             title: 'success!',

@@ -1,10 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Components/AuthProvider";
+import Loading from "../../Loading/Loading";
 
 
 const MyDonation = () => {
- const { user } = useContext(AuthContext); // Get the user's email from the context
-
+ const { user,loading } = useContext(AuthContext); // Get the user's email from the context
+  if (loading) {
+  return <Loading></Loading>
+}
   const email = user?.email; // Replace with actual method to get the email dynamically
   const [campaigns, setCampaigns] = useState([]);
  

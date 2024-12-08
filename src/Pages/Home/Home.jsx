@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react";
+import { Typewriter } from 'react-simple-typewriter'
+
+// import Lottie from "react-lottie";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-
-
-
-
 
     const [campaigns, setCampaigns] = useState([]);
 
   useEffect(() => {
     const fetchCampaigns = async () => {
       try {
-        const response = await fetch("https://crowdcube-server-tau.vercel.app/campaign"); // Replace with your API route
+        const response = await fetch("https://crowdcube-server-tau.vercel.app/campaign");  
         const data = await response.json();
         setCampaigns(data);
       } catch (error) {
@@ -32,7 +31,22 @@ const Home = () => {
       <section className="relative bg-gray-800 text-white">
   {/* <!-- Banner Content --> */}
   <div className="container mx-auto px-4 py-8">
-    <h1 className="text-4xl font-bold text-center">Empowering Dreams Together</h1>
+            <h1 className="text-4xl font-bold text-center">
+                <span style={{ color: 'seagreen', fontWeight: 'bold' }}>
+          {/* Style will be inherited from the parent element */}
+          <Typewriter
+            words={[' Empowering Dreams Together']}
+            loop={5}
+            cursor
+            cursorStyle='_'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+            // onLoopDone={handleDone}
+            // onType={handleType}
+          />
+        </span>
+             </h1>
     <p className="text-center text-gray-300 mt-4">
       A platform to raise funds for projects, ideas, and causes. Connect with contributors to make your vision a reality.
     </p>
@@ -94,7 +108,18 @@ const Home = () => {
         </div>
       </div>
     </div>
-  </div>
+          </div>
+           {/* <div className="mt-6 w-full max-w-md">
+              // Lottie Animations
+              <Player
+                autoplay
+                loop
+              src={require('../../assets/welcome.json')}  //Path to your animation JSON file
+             
+              
+                style={{ height: "300px", width: "300px" }}
+              />
+            </div> */}
 </section>
   
 

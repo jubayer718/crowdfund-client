@@ -3,6 +3,7 @@ import { FaGoogle } from "react-icons/fa";
 import { Navigate, useFetcher, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Components/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
 const navigate=useNavigate()
@@ -27,7 +28,8 @@ const {handleSignIn,setUser,loginWithGoogle}=useContext(AuthContext)
           setUser(user);
          navigate(location?.state?location.state:"/")
       }).catch(error => {
-      console.log(error)
+        // console.log(error)
+        Swal.fire('invalid email')
     })
   }
   const handleLoginWithGoogle = () => {
