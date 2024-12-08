@@ -3,18 +3,25 @@ import axios from 'axios';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 
 const AllCampaign = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const loadedCampaigns = useLoaderData();
   const [campaigns, setCampaigns] = useState(loadedCampaigns);
-console.log(campaigns)
+// console.log(campaigns)
   // const handleSeeMore = (id) => {
   //   // Redirect to the campaign details page
   //   navigate(`/campaign/${id}`);
   // };
-
+  const handleSort = () => {
+     setCampaigns([...campaigns].sort((a, b) => b?.minDonation - a?.minDonation));
+}
   return (
     <div className='my-12' style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>All Campaigns</h1>
+      <h1 style={{ textAlign: 'center',fontSize:"30px" ,fontWeight:"bold", marginBottom: '10px' }}>All Campaigns</h1>
+
+      <div className='flex items-center justify-between my-8'>
+        <div></div>
+        <div><button onClick={handleSort} className='btn btn-warning'>Sort By Donation Price</button></div>
+      </div>
       <table
         style={{
           width: '100%',
@@ -30,6 +37,8 @@ console.log(campaigns)
             <th style={headerCellStyle}>Description</th>
             <th style={headerCellStyle}>Start Date</th>
             <th style={headerCellStyle}>End Date</th>
+            <th style={headerCellStyle}>Min Donation</th>
+
             <th style={headerCellStyle}>Actions</th>
           </tr>
         </thead>
@@ -52,6 +61,7 @@ console.log(campaigns)
               <td className='w-3/5' style={cellStyle}>{campaign.description}</td>
               <td style={cellStyle}>{campaign.startedDate}</td>
               <td style={cellStyle}>{campaign.deadline}</td>
+              <td style={cellStyle}>{campaign.minDonation}</td>
               <td style={cellStyle}>
                 <Link
                   to={`/campaign/${campaign._id}`}
