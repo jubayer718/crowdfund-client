@@ -1,12 +1,14 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { AuthContext } from '../../Components/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const MyCampaign = () => {
   const { user } = useContext(AuthContext); // Get the user's email from the context
+const data=useLoaderData()
   const email = user?.email; // Replace with actual method to get the email dynamically
   const [campaigns, setCampaigns] = useState([]);
-
+ 
   useEffect(() => {
     if (!email) return; // Don't proceed if email is not available
 
@@ -30,6 +32,48 @@ const MyCampaign = () => {
         setCampaigns(data))
       .catch(error => console.error('Error fetching campaigns:', error));
   }, [email]);
+
+
+  const handleDelete = (_id) => {
+     console.log(_id)
+Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+    fetch(`http://localhost:5000/campaign/${_id}`,{method:'DELETE'})
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        if(data.deletedCount>0
+        ) {
+      
+           Swal.fire({
+      title: "Deleted!",
+      text: "Your file has been deleted.",
+      icon: "success"
+    });
+
+          {
+            const remaining = campaigns.filter(campaign => campaign._id !== _id);
+            setCampaigns(remaining)
+}
+
+}
+    })
+
+
+
+
+   
+  }
+});
+   }
 
   return (
     <div className="p-4">
@@ -57,7 +101,7 @@ const MyCampaign = () => {
             <td className="p-2">{campaign.minDonation}</td>
             <td className="p-2">{campaign.deadline}</td>
             <td><Link to={`/campaign/update/${campaign._id}`} className='btn text-white bg-green-500'>Update</Link></td>
-            <td><button className='btn text-white bg-orange-700'>Delete</button></td>
+            <td><button onClick={()=>handleDelete(campaign?._id)} className='btn text-white bg-orange-700'>Delete</button></td>
           </tr>
         ))}
       </tbody>
