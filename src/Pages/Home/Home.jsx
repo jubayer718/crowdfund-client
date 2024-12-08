@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Typewriter } from 'react-simple-typewriter'
-
+import Reveal, { Fade } from "react-awesome-reveal";
+import { keyframes } from "@emotion/react";
 // import Lottie from "react-lottie";
 import { Link } from "react-router-dom";
 
@@ -29,6 +30,24 @@ const currentDate = new Date(); // Get the current date
 
     fetchCampaigns();
   }, []);
+  // Define custom keyframes for iconic animation
+const bounceIn = keyframes`
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+`;
   return (
 
 
@@ -134,39 +153,46 @@ const currentDate = new Date(); // Get the current date
       </header>
 
       <main>
-        <section className="py-10 bg-gray-100">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-8">Running Campaigns</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {campaigns.map((campaign) => (
-            <div
-              key={campaign._id}
-              className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
-            >
-              <img
-                src={campaign.thumbnail}
-                alt={campaign.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-2">{campaign.title}</h3>
-                <p className="text-gray-600 mb-4">
-                  {campaign.description.length > 100
-                    ? campaign.description.substring(0, 100) + "..."
-                    : campaign.description}
-                </p>
-                <div className="text-gray-700 mb-4">
-                  <p>Goal: ${campaign.goal}</p>
-                  <p>Raised: ${campaign.raised}</p>
-                  <p>Deadline: {new Date(campaign.deadline).toLocaleDateString()}</p>
-                </div>
-                <Link to={`/campaign/${campaign?._id}`} className="btn btn-primary w-full">See More</Link>
+    
+<section className="py-10 bg-gray-100">
+  <div className="container mx-auto px-4">
+    <Reveal keyframes={bounceIn} cascade duration={5000} triggerOnce>
+      <h2 className="text-4xl font-bold text-center mb-8">Running Campaigns</h2>
+    </Reveal>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {campaigns.map((campaign) => (
+        <Reveal keyframes={bounceIn} cascade duration={1000} triggerOnce>
+          <div
+            key={campaign._id}
+            className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+          >
+            <img
+              src={campaign.thumbnail}
+              alt={campaign.title}
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-6">
+              <h3 className="text-2xl font-bold mb-2">{campaign.title}</h3>
+              <p className="text-gray-600 mb-4">
+                {campaign.description.length > 100
+                  ? campaign.description.substring(0, 100) + "..."
+                  : campaign.description}
+              </p>
+              <div className="text-gray-700 mb-4">
+                <p>Goal: ${campaign.goal}</p>
+                <p>Raised: ${campaign.raised}</p>
+                <p>Deadline: {new Date(campaign.deadline).toLocaleDateString()}</p>
               </div>
+              <Link to={`/campaign/${campaign?._id}`} className="btn btn-primary w-full">
+                See More
+              </Link>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
+          </div>
+        </Reveal>
+      ))}
+    </div>
+  </div>
+</section>
         
         {/* another own section-1 */}
      <section className="bg-gradient-to-r from-blue-500 via-green-400 to-purple-500 py-20">

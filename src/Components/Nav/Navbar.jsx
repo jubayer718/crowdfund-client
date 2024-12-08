@@ -89,7 +89,7 @@ const Navbar = () => {
               <img className="w-10 h-10 rounded-full" src={user.photoURL} alt="User Profile" />
               
               {isHovered && (
-                <div className="absolute  right-3 z-50 top-full bg-black text-white  px-2 py-1 rounded">
+                <div className="absolute right-3 z-50 top-full bg-black text-white  px-2 py-1 rounded">
                   <span>{user.displayName}</span>
                   <br />
                   <Link to="/" onClick={handleLogOut} className="btn btn-neutral mt-2">Log out</Link>
