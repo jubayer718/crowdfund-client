@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { AuthContext } from '../../Components/AuthProvider';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const MyCampaign = () => {
   const { user } = useContext(AuthContext); // Get the user's email from the context
-const data=useLoaderData()
+
   const email = user?.email; // Replace with actual method to get the email dynamically
   const [campaigns, setCampaigns] = useState([]);
  
