@@ -6,7 +6,7 @@ import { AuthContext } from "../../Components/AuthProvider";
 
 const Login = () => {
 const navigate=useNavigate()
-const {handleSignIn,setUser}=useContext(AuthContext)
+const {handleSignIn,setUser,loginWithGoogle}=useContext(AuthContext)
   const emailRef = useRef();
   const passRef=useRef()
   const [valid,setValid]=useState("")
@@ -75,7 +75,7 @@ const {handleSignIn,setUser}=useContext(AuthContext)
 
 
         <h3 className='text-center font-semibold'>Don't have an account? <Link to="/register"  className='text-red-500'>Register</Link></h3>
-        <button onClick={handleLoginWithGoogle} className="w-full btn font-bold text-xl my-3"><FaGoogle></FaGoogle> Login with google</button>
+        <button onClick={loginWithGoogle} className="w-full btn font-bold text-xl my-3"><FaGoogle></FaGoogle> Login with google</button>
         </div>
     </div>
     </div>

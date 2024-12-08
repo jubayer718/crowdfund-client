@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-
-
 const Home = () => {
+
+
+
 
 
     const [campaigns, setCampaigns] = useState([]);
@@ -11,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     const fetchCampaigns = async () => {
       try {
-        const response = await fetch("/api/running-campaigns"); // Replace with your API route
+        const response = await fetch("http://localhost:5000/campaign"); // Replace with your API route
         const data = await response.json();
         setCampaigns(data);
       } catch (error) {
@@ -22,9 +23,12 @@ const Home = () => {
     fetchCampaigns();
   }, []);
   return (
+
+
     <div>
       <header>
        
+    
       <section className="relative bg-gray-800 text-white">
   {/* <!-- Banner Content --> */}
   <div className="container mx-auto px-4 py-8">

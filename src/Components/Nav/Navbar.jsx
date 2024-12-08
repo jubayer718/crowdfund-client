@@ -1,13 +1,29 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './nav.css'
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider';
 import { FaUserCircle } from 'react-icons/fa';
+import { FaCloudMoon } from "react-icons/fa";
+import { IoIosSunny } from "react-icons/io";
 const Navbar = () => {
   const { user,handleLogOut } = useContext(AuthContext);
   
+    // State to track the current theme
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  // Apply the theme to the <html> element
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme); // Save the theme to local storage
+  }, [theme]);
+
+  // Toggle theme
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
   return (
     <div className="navbar bg-gray-900  text-gray-300">
+     
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -48,6 +64,16 @@ const Navbar = () => {
     </ul>
   </div>
       <div className="navbar-end">
+
+  <div className="mr-10 lg:mr-20">
+     
+      <button
+        onClick={toggleTheme}
+      >
+     {theme === "light" ? <FaCloudMoon /> : <IoIosSunny />}
+      </button>
+    </div>
+
     {/* User Profile & Login/Logout */}
       <div className='flex items-center gap-4'>
         {user && user?.email ? (
