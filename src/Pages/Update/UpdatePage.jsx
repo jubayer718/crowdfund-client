@@ -33,7 +33,7 @@ console.log(update)
    
     // Add form submission logic here (e.g., API call)
 
-    fetch(`http://localhost:5000/campaign/${id}`, {
+    fetch(`https://crowdcube-server-tau.vercel.app/campaign/${id}`, {
       method: 'PATCH',
       headers: {
         'content-type': "application/json"

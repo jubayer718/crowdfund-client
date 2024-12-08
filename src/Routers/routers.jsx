@@ -25,7 +25,7 @@ const routes = createBrowserRouter([
       }, {
         path: '/allCampaign',
         element: <AllCampaign></AllCampaign>,
-        loader:()=>fetch('http://localhost:5000/campaign')
+        loader:()=>fetch('https://crowdcube-server-tau.vercel.app/campaign')
       }, {
         path: '/addCampaign',
         element: <PrivateRoute>
@@ -49,13 +49,13 @@ const routes = createBrowserRouter([
         element: <PrivateRoute>
           <DetailsPage></DetailsPage>
         </PrivateRoute>,
-          loader:({params})=>fetch(`http://localhost:5000/campaign/${params._id}`)
+          loader:({params})=>fetch(`https://crowdcube-server-tau.vercel.app/campaign/${params._id}`)
       }, {
         path: "/campaign/update/:id",
         element: <PrivateRoute>
           <UpdatePage></UpdatePage>
         </PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/campaign/update/${params.id}`)
+        loader:({params})=>fetch(`https://crowdcube-server-tau.vercel.app/campaign/update/${params.id}`)
       },
       {
         path: "/login",

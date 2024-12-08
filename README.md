@@ -1,8 +1,16 @@
-# React + Vite
+## Website Name 
+* FundFusion
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Key Feature
+ This website is responsive and user friendly.
 
-Currently, two official plugins are available:
+ * when user click addNew campaign he/she will see a form.
+ * If user want a add new campaign he/she can.
+ * when user click myCampaign, he/she will see his/her added campaign.
+ * If user want to update his/her campaign he can update.
+ * If user want to delete his/her campaign he can delete.
+ * user can toggle dark theme or light theme.
+ 
+## This is Live site URL
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* https://crowd-funding-85c71.web.app/myCampaign

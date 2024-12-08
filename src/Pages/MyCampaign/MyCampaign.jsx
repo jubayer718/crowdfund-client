@@ -12,7 +12,7 @@ const MyCampaign = () => {
   useEffect(() => {
     if (!email) return; // Don't proceed if email is not available
 
-    fetch('http://localhost:5000/campaign/by-email', {
+    fetch('https://crowdcube-server-tau.vercel.app/campaign/by-email', {
       method: 'POST', // Use POST since we're sending the email in the body
       headers: {
         'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ Swal.fire({
   confirmButtonText: "Yes, delete it!"
 }).then((result) => {
   if (result.isConfirmed) {
-    fetch(`http://localhost:5000/campaign/${_id}`,{method:'DELETE'})
+    fetch(`https://crowdcube-server-tau.vercel.app/campaign/${_id}`,{method:'DELETE'})
       .then(res => res.json())
       .then(data => {
         console.log(data)

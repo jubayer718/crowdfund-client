@@ -24,7 +24,7 @@ const DetailsPage = () => {
   if (new Date() > new Date(deadline)) {
    return Swal.fire("Deadline has passed. Donations are not allowed.");
 }
-    fetch('http://localhost:5000/campaign/donateData', {
+    fetch('https://crowdcube-server-tau.vercel.app/campaign/donateData', {
       method: 'POST',
       headers: {
        'content-type':"application/json"

@@ -12,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     const fetchCampaigns = async () => {
       try {
-        const response = await fetch("http://localhost:5000/campaign"); // Replace with your API route
+        const response = await fetch("https://crowdcube-server-tau.vercel.app/campaign"); // Replace with your API route
         const data = await response.json();
         setCampaigns(data);
       } catch (error) {

@@ -47,7 +47,7 @@ console.log(formData)
 
     // Add form submission logic here (e.g., API call)
 
-    fetch('http://localhost:5000/campaign', {
+    fetch('https://crowdcube-server-tau.vercel.app/campaign', {
       method: 'POST',
       headers: {
         'content-type': "application/json"
