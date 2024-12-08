@@ -7,13 +7,13 @@ const AllCampaign = () => {
   const loadedCampaigns = useLoaderData();
   const [campaigns, setCampaigns] = useState(loadedCampaigns);
 console.log(campaigns)
-  const handleSeeMore = (id) => {
-    // Redirect to the campaign details page
-    navigate(`/campaign/${id}`);
-  };
+  // const handleSeeMore = (id) => {
+  //   // Redirect to the campaign details page
+  //   navigate(`/campaign/${id}`);
+  // };
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+    <div className='my-12' style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
       <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>All Campaigns</h1>
       <table
         style={{
@@ -49,13 +49,13 @@ console.log(campaigns)
               }
             >
               <td style={cellStyle}>{campaign.title}</td>
-              <td style={cellStyle}>{campaign.description}</td>
+              <td className='w-3/5' style={cellStyle}>{campaign.description}</td>
               <td style={cellStyle}>{campaign.startedDate}</td>
               <td style={cellStyle}>{campaign.deadline}</td>
               <td style={cellStyle}>
                 <Link
                   to={`/campaign/${campaign._id}`}
-                  // to="/campaign"
+                className='btn'
                   style={{
                     backgroundColor: '#4CAF50',
                     color: 'white',

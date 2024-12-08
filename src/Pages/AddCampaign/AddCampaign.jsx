@@ -70,7 +70,7 @@ console.log(formData)
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-8 bg-base-200 rounded-lg shadow-lg">
+    <div className=" my-12 max-w-4xl mx-auto p-8 bg-base-200 rounded-lg shadow-lg">
       <h2 className="text-3xl font-bold text-center mb-6">Add New Campaign</h2>
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Thumbnail */}
@@ -209,7 +209,7 @@ console.log(formData)
 
         {/* Submit Button */}
         <div className="form-control mt-6">
-          <button type="submit" className="btn btn-primary w-full">
+          <button type="submit" className="btn bg-green-600 w-full">
             Add Campaign
           </button>
         </div>

@@ -21,7 +21,9 @@ const DetailsPage = () => {
 
   const handleStoredData = () => {
     const addNewData={thumbnail,title,description,startedDate,deadline,email,name}
-
+  if (new Date() > new Date(deadline)) {
+   return Swal.fire("Deadline has passed. Donations are not allowed.");
+}
     fetch('http://localhost:5000/campaign/donateData', {
       method: 'POST',
       headers: {
@@ -44,13 +46,13 @@ console.log(campaign)
     return (
       
       <div className="card card-side my-12 flex flex-col  lg:flex-row bg-base-100 border-2 border-gray-400">
-  <figure className='lg:w-2/5  p-4'>
+  <figure className=' lg:w-3/5 p-4'>
           <img
-            className='w-full h-56 object-cover'
+            className='w-full h-62 object-cover'
       src={campaign?.thumbnail}
       alt="Movie" />
   </figure>
-  <div className="card-body">
+  <div className="card-body ">
     <h1><strong>Title:</strong> {campaign?.title}</h1>
              <p><strong>Description:</strong> {campaign?.description}</p>
           <p><strong>Start Date:</strong> {campaign?.startedDate}</p>
