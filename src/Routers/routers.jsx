@@ -10,11 +10,13 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import DetailsPage from "../Details/Details";
 import UpdatePage from "../Pages/Update/UpdatePage";
+import ErrorPage from "../Pages/Error/ErrorPage";
 
 const routes = createBrowserRouter([
   {
     path: '/',
     element: <MainLayout></MainLayout>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
@@ -62,7 +64,6 @@ const routes = createBrowserRouter([
         path: "/register",
         element:<Register></Register>
       }, 
-        
       
     ]
   }
