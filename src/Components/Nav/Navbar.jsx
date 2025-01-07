@@ -8,7 +8,6 @@ import { IoIosSunny } from "react-icons/io";
 
 const Navbar = () => {
   const { user, handleLogOut } = useContext(AuthContext);
-  
   // State to track the current theme
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
@@ -31,7 +30,7 @@ const Navbar = () => {
   const handleMouseLeave = () => setIsHovered(false);
 
   return (
-    <div className="navbar bg-gray-900 text-gray-300">
+    <div className="navbar bg-gray-900 text-gray-300 px-10 fixed z-30">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -90,7 +89,7 @@ const Navbar = () => {
               
               {isHovered && (
                 <div className="absolute right-3 z-50 top-full bg-black text-white  px-2 py-1 rounded">
-                  <span>{user.displayName}</span>
+                  <span>{user?.displayName}</span>
                   <br />
                   <Link to="/" onClick={handleLogOut} className="btn btn-neutral mt-2">Log out</Link>
                 </div>

@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Components/AuthProvider";
 import Loading from "../../Loading/Loading";
+import { data, useLoaderData } from "react-router-dom";
 
 
 const MyDonation = () => {
@@ -8,31 +9,40 @@ const MyDonation = () => {
   if (loading) {
   return <Loading></Loading>
 }
-  const email = user?.email; // Replace with actual method to get the email dynamically
+  const email = user?.email;
+  const name = user?.displayname;
   const [campaigns, setCampaigns] = useState([]);
- 
+  // const donationData = useLoaderData()
+  // console.log(donationData)
   useEffect(() => {
     if (!email) return; // Don't proceed if email is not available
-
-    fetch('https://crowdcube-server-tau.vercel.app/campaign/by-email', {
-      method: 'POST', // Use POST since we're sending the email in the body
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email }), // Include email in the request body
-    })
-      .then(res => {
-        if (!res.ok) {
-          throw new Error('Failed to fetch campaigns');
-        }
-        return res.json();
+    fetch(`https://crowdcube-server-tau.vercel.app/myDonation/${email}`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        setCampaigns(data)
       })
-      .then(data =>
+     
+    
+    // fetch('https://crowdcube-server-tau.vercel.app/campaign/by-email', {
+    //   method: 'POST', // Use POST since we're sending the email in the body
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({ email,name }), // Include email in the request body
+    // })
+    //   .then(res => {
+    //     if (!res.ok) {
+    //       throw new Error('Failed to fetch campaigns');
+    //     }
+    //     return res.json();
+    //   })
+    //   .then(data =>
         
         
         
-        setCampaigns(data))
-      .catch(error => console.error('Error fetching campaigns:', error));
+    //     setCampaigns(data))
+    //   .catch(error => console.error('Error fetching campaigns:', error));
   }, [email]);
 
 

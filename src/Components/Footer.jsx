@@ -1,8 +1,10 @@
-import React from 'react';
+import Social from "./social/Social";
+
 
 const Footer = () => {
   return (
-   <footer class="bg-gray-900 text-gray-300 py-10">
+    <footer class="bg-gray-900 px-10 text-gray-300 py-10">
+      <div className="flex items-center justify-center mb-4"><img className='h-16 w-16 rounded-full' src="https://i.ibb.co.com/kByzcS7/DALL-E-2024-12-04-20-36-53-A-professional-and-minimalist-circular-logo-for-a-crowdfunding-website-na.webp" alt="" /></div> 
   <div class="container mx-auto px-4">
     {/* <!-- Top Info Section --> */}
     <div class="text-center mb-8">
@@ -49,12 +51,15 @@ const Footer = () => {
         <p class="text-sm">Email: <a href="mailto:support@yourdomain.com" class="hover:text-white">support@yourdomain.com</a></p>
         <p class="text-sm">Phone: +1 (555) 123-4567</p>
         <p class="text-sm">Address: 123 Crowdfunding Ave, Dream City</p>
-        <div class="flex space-x-4 mt-4">
-          <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+        <div class="flex space-x-4 mt-8">
+   
+          {/* social section */}
+              <Social></Social>
+              
         </div>
-      </div>
+          </div>
+
+
     </div>
 
     {/* <!-- Newsletter Section --> */}

@@ -83,6 +83,7 @@ const AddCampaign = () => {
             name="thumbnail"
             value={formData.thumbnail}
             onChange={handleChange}
+            required
             placeholder="https://example.com/image.jpg"
             className="input input-bordered w-full"
           />
@@ -98,6 +99,7 @@ const AddCampaign = () => {
             name="title"
             value={formData.title}
             onChange={handleChange}
+            required
             placeholder="Enter the campaign title"
             className="input input-bordered w-full"
           />
@@ -112,6 +114,7 @@ const AddCampaign = () => {
             name="type"
             value={formData.type}
             onChange={handleChange}
+            required
             className="select select-bordered w-full"
           >
             <option value="personal">Personal Issue</option>
@@ -131,6 +134,7 @@ const AddCampaign = () => {
             value={formData.description}
             onChange={handleChange}
             placeholder="Provide a detailed description of the campaign"
+            required
             className="textarea textarea-bordered w-full"
           ></textarea>
         </div>
@@ -146,6 +150,7 @@ const AddCampaign = () => {
             value={formData.minDonation}
             onChange={handleChange}
             placeholder="Enter minimum donation amount"
+            required
             className="input input-bordered w-full"
           />
         </div>
@@ -160,6 +165,7 @@ const AddCampaign = () => {
             name="startedDate"
             value={formData.startedDate}
             onChange={handleChange}
+            required
             className="input input-bordered w-full"
           />
         </div>
@@ -175,6 +181,7 @@ const AddCampaign = () => {
             name="deadline"
             value={formData.deadline}
             onChange={handleChange}
+            required
             className="input input-bordered w-full"
           />
         </div>

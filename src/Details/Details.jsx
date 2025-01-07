@@ -20,7 +20,7 @@ const DetailsPage = () => {
   // const { email, displayName } = user
 
   const handleStoredData = () => {
-    const addNewData={thumbnail,title,description,startedDate,deadline,email,name}
+    const addNewData={thumbnail,title,description,startedDate,deadline,email,name,contributorEmail:user?.email}
   if (new Date() > new Date(deadline)) {
    return Swal.fire("Deadline has passed. Donations are not allowed.");
 }
@@ -52,11 +52,12 @@ const DetailsPage = () => {
       src={campaign?.thumbnail}
       alt="Movie" />
   </figure>
-  <div className="card-body ">
+  <div className="card-body w-full">
     <h1><strong>Title:</strong> {campaign?.title}</h1>
              <p><strong>Description:</strong> {campaign?.description}</p>
           <p><strong>Start Date:</strong> {campaign?.startedDate}</p>
-          <p><strong>Min Donation:</strong>{ campaign?.minDonation}</p>
+          <p><strong>Min Donation:</strong>{campaign?.minDonation}</p>
+          
              <p><strong>End Date:</strong> {campaign?.deadline}</p>
              <p><strong>Created By:</strong> {campaign?.email}</p>
     <div className="card-actions justify-end">
