@@ -1,5 +1,5 @@
 # 🌍 Crowdfund Hub  
-
+![Image](https://github.com/user-attachments/assets/ee414fd8-2ffb-4ca1-a740-b0a99e7c2556)
 ## 📌 About  
 **Crowdfund Hub** is a **crowdfunding platform** designed to help individuals, startups, and communities **raise funds** for their ideas. Users can:  
 - **Create and manage campaigns**  
