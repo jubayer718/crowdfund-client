@@ -51,8 +51,8 @@ const Home = () => {
 `;
   return (
 
+<>
 
-    <div>
       <header className="">
 
 
@@ -229,7 +229,7 @@ const Home = () => {
               <input
                 type="email"
                 placeholder="Enter your email address"
-                className="px-4 py-3 w-full sm:w-2/3 rounded-md text-gray-800"
+                className="px-4 py-3 w-full sm:w-2/3 rounded-md "
               />
               <button className="btn bg-green-500 text-white px-6 py-3 rounded-md">Subscribe</button>
             </div>
@@ -238,28 +238,28 @@ const Home = () => {
 
 
         {/* another own section-1 */}
-    <section className="bg-gray-300 text-white py-16">
+    <section className=" py-16">
   <div className="container mx-auto px-4 text-center">
-    <h2 className="text-4xl font-bold text-gray-800 mb-6">How Crowdfunding Works</h2>
-    <p className="text-lg text-gray-600 mb-12">Follow these simple steps to bring your ideas to life!</p>
+    <h2 className="text-4xl font-bold  mb-6">How Crowdfunding Works</h2>
+    <p className="text-lg  mb-12">Follow these simple steps to bring your ideas to life!</p>
 
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {/* Step 1 */}
-      <div className="bg-gray-100 p-6 rounded-lg shadow-lg transition transform hover:-translate-y-2 duration-300">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Step 1: Create Your Campaign</h3>
-        <p className="text-gray-600">Tell your story, set a funding goal, and launch your project!</p>
+      <div className=" p-6 rounded-lg shadow-lg transition transform hover:-translate-y-2 duration-300">
+        <h3 className="text-2xl font-semibold  mb-4">Step 1: Create Your Campaign</h3>
+        <p className="">Tell your story, set a funding goal, and launch your project!</p>
       </div>
 
       {/* Step 2 */}
-      <div className="bg-gray-100 p-6 rounded-lg shadow-lg transition transform hover:-translate-y-2 duration-300">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Step 2: Share Your Campaign</h3>
-        <p className="text-gray-600">Spread the word, share your campaign on social media, and invite others to support you.</p>
+      <div className=" p-6 rounded-lg shadow-lg transition transform hover:-translate-y-2 duration-300">
+        <h3 className="text-2xl font-semibold  mb-4">Step 2: Share Your Campaign</h3>
+        <p className="">Spread the word, share your campaign on social media, and invite others to support you.</p>
       </div>
 
       {/* Step 3 */}
-      <div className="bg-gray-100 p-6 rounded-lg shadow-lg transition transform hover:-translate-y-2 duration-300">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Step 3: Reach Your Goal</h3>
-        <p className="text-gray-600">Once you reach your goal, it's time to bring your vision to life and update your supporters!</p>
+      <div className=" p-6 rounded-lg shadow-lg transition transform hover:-translate-y-2 duration-300">
+        <h3 className="text-2xl font-semibold  mb-4">Step 3: Reach Your Goal</h3>
+        <p className="">Once you reach your goal, it's time to bring your vision to life and update your supporters!</p>
       </div>
     </div>
   </div>
@@ -268,41 +268,39 @@ const Home = () => {
 
 
         {/* another own section-2 */}
-       <section className="py-10 bg-gray-300 text-white">
+       <section className="py-10">
   <div className="container mx-auto px-4 text-center">
-    <h2 className="text-4xl font-bold text-gray-800 mb-6">Featured Campaigns</h2>
-    <p className="text-lg text-gray-600 mb-12">Support these incredible projects that are making a difference!</p>
+    <h2 className="text-4xl font-bold  mb-6">Featured Campaigns</h2>
+    <p className="text-lg  mb-12">Support these incredible projects that are making a difference!</p>
 
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {/* Campaign 1 */}
-      <div className="bg-white p-6 rounded-lg shadow-lg">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">"Funding Dreams, Inspiring Change"</h3>
-        <p className="text-gray-600">Support a creative initiative that's going to change the world!</p>
+      <div className=" p-6 rounded-lg shadow-lg hover:rotate-6 duration-300">
+        <h3 className="text-2xl font-semibold  mb-4">"Funding Dreams, Inspiring Change"</h3>
+        <p className="">Support a creative initiative that's going to change the world!</p>
         <button className="btn bg-blue-600 text-white mt-4 px-4 py-2 rounded">Support This Campaign</button>
       </div>
 
       {/* Campaign 2 */}
-      <div className="bg-white p-6 rounded-lg shadow-lg">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">"Innovate, Inspire, Invest"</h3>
-        <p className="text-gray-600">A life-changing project in need of your help to make it happen.</p>
+      <div className=" p-6 rounded-lg shadow-lg hover:rotate-6 duration-300">
+        <h3 className="text-2xl font-semibold  mb-4">"Innovate, Inspire, Invest"</h3>
+        <p className="">A life-changing project in need of your help to make it happen.</p>
         <button className="btn bg-blue-600 text-white mt-4 px-4 py-2 rounded">Support This Campaign</button>
       </div>
 
       {/* Campaign 3 */}
-      <div className="bg-white p-6 rounded-lg shadow-lg">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">"Empowering Dreams"</h3>
-        <p className="text-gray-600">Join this movement and contribute to a great cause!</p>
+      <div className=" p-6 rounded-lg shadow-lg hover:rotate-6 duration-300">
+        <h3 className="text-2xl font-semibold  mb-4">"Empowering Dreams"</h3>
+        <p className="">Join this movement and contribute to a great cause!</p>
         <button className="btn bg-blue-600 text-white mt-4 px-4 py-2 rounded">Support This Campaign</button>
       </div>
     </div>
   </div>
 </section>
 
-
-
       </main>
 
-    </div>
+    </>
   );
 };
 
