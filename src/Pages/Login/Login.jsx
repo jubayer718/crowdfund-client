@@ -15,6 +15,7 @@ const {handleSignIn,setUser,loginWithGoogle}=useContext(AuthContext)
   
   const [valid,setValid]=useState("")
   const passValid = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -35,15 +36,13 @@ const {handleSignIn,setUser,loginWithGoogle}=useContext(AuthContext)
         Swal.fire('invalid email')
     })
   }
-  const handleLoginWithGoogle = () => {
-  
-}
+ 
   const handleForgetPass = () => {
     
   }
   return (
      <div>
-     <div className='min-h-screen flex items-center justify-center '>
+     <div className='min-h-screen my-12 flex items-center justify-center '>
       
       <div className="card bg-base-100 w-full max-w-lg border rounded-lg shrink-0  p-10">
         <h3 className='font-bold text-2xl text-center'>Login your account</h3>

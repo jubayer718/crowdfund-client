@@ -194,21 +194,21 @@ const Home = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Offer 1 */}
-              <div className="bg-base-100 shadow-lg rounded-lg p-6 ">
+              <div className="bg-base-100 shadow-lg rounded-lg p-6 hover:rotate-6 duration-300">
                 <h3 className="text-2xl font-semibold mb-4">Limited Time Offer</h3>
                 <p className="text-gray-600 mb-6">Get 20% extra funding support on your first campaign!</p>
                 <button className="btn btn-primary bg-purple-600 text-white w-full">Claim Offer</button>
               </div>
 
               {/* Offer 2 */}
-              <div className="bg-base-100 shadow-lg rounded-lg p-6">
+              <div className="bg-base-100 shadow-lg rounded-lg p-6 hover:rotate-6 duration-300">
                 <h3 className="text-2xl font-semibold  mb-4">Referral Bonus</h3>
                 <p className="text-gray-600 mb-6">Invite a friend and earn up to $50 in credits.</p>
                 <button className="btn btn-primary bg-purple-600 text-white w-full">Refer Now</button>
               </div>
 
               {/* Offer 3 */}
-              <div className="bg-base-100 shadow-lg rounded-lg p-6">
+              <div className="bg-base-100 shadow-lg rounded-lg p-6 hover:rotate-6 duration-300">
                 <h3 className="text-2xl font-semibold  mb-4">Early Bird Campaign</h3>
                 <p className="text-gray-600 mb-6">Start your campaign early and receive exclusive benefits.</p>
                 <button className="btn btn-primary bg-purple-600 text-white w-full">Get Started</button>
@@ -218,7 +218,7 @@ const Home = () => {
         </section>
 
 
-        <section className="bg-gray-600 mt-5  py-20">
+        <section className="bg-gray-600 mt-5  py-20 ">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-4xl font-bold mb-6">Stay Updated with Our Newsletter</h2>
             <p className="text-lg text-gray-300 mb-12">
@@ -245,19 +245,19 @@ const Home = () => {
 
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {/* Step 1 */}
-      <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
+      <div className="bg-gray-100 p-6 rounded-lg shadow-lg transition transform hover:-translate-y-2 duration-300">
         <h3 className="text-2xl font-semibold text-gray-800 mb-4">Step 1: Create Your Campaign</h3>
         <p className="text-gray-600">Tell your story, set a funding goal, and launch your project!</p>
       </div>
 
       {/* Step 2 */}
-      <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
+      <div className="bg-gray-100 p-6 rounded-lg shadow-lg transition transform hover:-translate-y-2 duration-300">
         <h3 className="text-2xl font-semibold text-gray-800 mb-4">Step 2: Share Your Campaign</h3>
         <p className="text-gray-600">Spread the word, share your campaign on social media, and invite others to support you.</p>
       </div>
 
       {/* Step 3 */}
-      <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
+      <div className="bg-gray-100 p-6 rounded-lg shadow-lg transition transform hover:-translate-y-2 duration-300">
         <h3 className="text-2xl font-semibold text-gray-800 mb-4">Step 3: Reach Your Goal</h3>
         <p className="text-gray-600">Once you reach your goal, it's time to bring your vision to life and update your supporters!</p>
       </div>

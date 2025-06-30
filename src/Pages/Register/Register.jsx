@@ -72,7 +72,7 @@ const [showPassword,setShowPassword]=useState(false)
     }
   return (
     <div>
-      <div className='min-h-screen flex items-center justify-center '>
+      <div className='min-h-screen my-12 flex items-center justify-center '>
       <div className="card bg-base-100 w-full max-w-lg shrink-0  border rounded-lg   p-8">
         <h3 className='font-bold text-2xl text-center'>Register your account</h3>
       <form onSubmit={handleSubmit} className="card-body">
