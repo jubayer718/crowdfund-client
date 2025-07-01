@@ -30,9 +30,6 @@ const MyCampaign = () => {
         return res.json();
       })
       .then(data =>
-        
-        
-        
         setCampaigns(data))
       .catch(error => console.error('Error fetching campaigns:', error));
   }, [email]);
@@ -67,23 +64,17 @@ Swal.fire({
             const remaining = campaigns.filter(campaign => campaign._id !== _id);
             setCampaigns(remaining)
 }
-
 }
-    })
-
-
-
-
-   
+    })  
   }
 });
    }
 
   return (
-    <div className="p-4">
-  <h1 className="text-3xl font-bold text-center text-gray-900 mb-4">My Campaigns</h1>
+    <div className="p-4 my-12">
+  <h1 className="text-3xl font-bold text-center  mb-4">My Campaigns</h1>
 
-  {loading?(<Loading></Loading>):campaigns.length > 0 ? (
+  {loading?<Loading/>:campaigns.length > 0 ? (
     <table className="table table-zebra w-full text-left">
       <thead>
         <tr className='bg-green-600 text-white'>
@@ -111,7 +102,7 @@ Swal.fire({
       </tbody>
     </table>
       ) :(
-    <p className="text-center text-lg text-gray-600 mt-4">No campaigns found.</p>
+    `${campaigns.length < 0 && <p className="text-center text-lg text-gray-600 mt-4">No campaigns found.</p>}`
   )}
 </div>
 

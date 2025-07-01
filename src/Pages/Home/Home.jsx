@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Typewriter } from 'react-simple-typewriter'
 import Reveal, { Fade } from "react-awesome-reveal";
 import { keyframes } from "@emotion/react";
-// import Lottie from "react-lottie";
+import { motion } from "motion/react"
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -194,25 +194,25 @@ const Home = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Offer 1 */}
-              <div className="bg-base-100 shadow-lg rounded-lg p-6 hover:rotate-6 duration-300">
+              <motion.div  initial={{scale:0}} animate={{scale:1, transition:{duration:2}}} className="bg-base-100 shadow-lg rounded-lg p-6 hover:rotate-6 duration-300">
                 <h3 className="text-2xl font-semibold mb-4">Limited Time Offer</h3>
                 <p className="text-gray-600 mb-6">Get 20% extra funding support on your first campaign!</p>
                 <button className="btn btn-primary bg-purple-600 text-white w-full">Claim Offer</button>
-              </div>
+              </motion.div>
 
               {/* Offer 2 */}
-              <div className="bg-base-100 shadow-lg rounded-lg p-6 hover:rotate-6 duration-300">
+              <motion.div initial={{scale:0}} animate={{scale:1,transition:{duration:2}}}  className="bg-base-100 shadow-lg rounded-lg p-6 hover:rotate-6 duration-300">
                 <h3 className="text-2xl font-semibold  mb-4">Referral Bonus</h3>
                 <p className="text-gray-600 mb-6">Invite a friend and earn up to $50 in credits.</p>
                 <button className="btn btn-primary bg-purple-600 text-white w-full">Refer Now</button>
-              </div>
+              </motion.div>
 
               {/* Offer 3 */}
-              <div className="bg-base-100 shadow-lg rounded-lg p-6 hover:rotate-6 duration-300">
+              <motion.div initial={{scale:0}} animate={{scale:1,transition:{duration:2}}} className="bg-base-100 shadow-lg rounded-lg p-6 hover:rotate-6 duration-300">
                 <h3 className="text-2xl font-semibold  mb-4">Early Bird Campaign</h3>
                 <p className="text-gray-600 mb-6">Start your campaign early and receive exclusive benefits.</p>
                 <button className="btn btn-primary bg-purple-600 text-white w-full">Get Started</button>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
