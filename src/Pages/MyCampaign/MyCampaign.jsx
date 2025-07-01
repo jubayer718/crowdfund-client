@@ -3,6 +3,7 @@ import { AuthContext } from '../../Components/AuthProvider';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Loading from '../../Loading/Loading';
+import { easeIn, motion } from 'motion/react';
 
 const MyCampaign = () => {
   
@@ -71,11 +72,11 @@ Swal.fire({
    }
 
   return (
-    <div className="p-4 my-12">
+    <motion.div initial={{opacity:0}} animate={{opacity:1, transition:{duration:2}}} className="p-4 my-12">
   <h1 className="text-3xl font-bold text-center  mb-4">My Campaigns</h1>
 
   {loading?<Loading/>:campaigns.length > 0 ? (
-    <table className="table table-zebra w-full text-left">
+    <motion.table initial={{opacity:0}} animate={{opacity:1, transition:{duration:1.5,ease:easeIn}}} className="table table-zebra w-full text-left">
       <thead>
         <tr className='bg-green-600 text-white'>
           <th className="p-2 text-lg font-semibold">Title</th>
@@ -100,11 +101,11 @@ Swal.fire({
           </tr>
         ))}
       </tbody>
-    </table>
+    </motion.table>
       ) :(
     `${campaigns.length < 0 && <p className="text-center text-lg text-gray-600 mt-4">No campaigns found.</p>}`
   )}
-</div>
+</motion.div>
 
   );
 };
