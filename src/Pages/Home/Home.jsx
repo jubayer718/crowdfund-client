@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Typewriter } from 'react-simple-typewriter'
 import Reveal, { Fade } from "react-awesome-reveal";
 import { keyframes } from "@emotion/react";
-import { motion } from "motion/react"
+import { easeIn, motion } from "motion/react"
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -194,21 +194,21 @@ const Home = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Offer 1 */}
-              <motion.div  initial={{scale:0}} animate={{scale:1, transition:{duration:2}}} className="bg-base-100 shadow-lg rounded-lg p-6 hover:rotate-6 duration-300">
+              <motion.div  initial={{scale:0, opacity:0}} whileInView={{opacity:1, scale:1,transition:{duration:2}}}  className="bg-base-100 shadow-lg rounded-lg p-6 hover:rotate-6 duration-300">
                 <h3 className="text-2xl font-semibold mb-4">Limited Time Offer</h3>
                 <p className="text-gray-600 mb-6">Get 20% extra funding support on your first campaign!</p>
                 <button className="btn btn-primary bg-purple-600 text-white w-full">Claim Offer</button>
               </motion.div>
 
               {/* Offer 2 */}
-              <motion.div initial={{scale:0}} animate={{scale:1,transition:{duration:2}}}  className="bg-base-100 shadow-lg rounded-lg p-6 hover:rotate-6 duration-300">
+              <motion.div initial={{scale:0,opacity:0}} whileInView={{scale:1, opacity:1,transition:{duration:2}}}  className="bg-base-100 shadow-lg rounded-lg p-6 hover:rotate-6 duration-300">
                 <h3 className="text-2xl font-semibold  mb-4">Referral Bonus</h3>
                 <p className="text-gray-600 mb-6">Invite a friend and earn up to $50 in credits.</p>
                 <button className="btn btn-primary bg-purple-600 text-white w-full">Refer Now</button>
               </motion.div>
 
               {/* Offer 3 */}
-              <motion.div initial={{scale:0}} animate={{scale:1,transition:{duration:2}}} className="bg-base-100 shadow-lg rounded-lg p-6 hover:rotate-6 duration-300">
+              <motion.div initial={{scale:0,opacity:0}} whileInView={{opacity:1, scale:1 , transition:{duration:2}}} className="bg-base-100 shadow-lg rounded-lg p-6 hover:rotate-6 duration-300">
                 <h3 className="text-2xl font-semibold  mb-4">Early Bird Campaign</h3>
                 <p className="text-gray-600 mb-6">Start your campaign early and receive exclusive benefits.</p>
                 <button className="btn btn-primary bg-purple-600 text-white w-full">Get Started</button>
@@ -238,17 +238,17 @@ const Home = () => {
 
 
         {/* another own section-1 */}
-    <section className=" py-16">
+        <motion.section style={{ y: 50 }} whileInView={{ y: 0, transition: { duration:2}}} className=" py-16">
   <div className="container mx-auto px-4 text-center">
     <h2 className="text-4xl font-bold  mb-6">How Crowdfunding Works</h2>
     <p className="text-lg  mb-12">Follow these simple steps to bring your ideas to life!</p>
 
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {/* Step 1 */}
-      <div className=" p-6 rounded-lg shadow-lg transition transform hover:-translate-y-2 duration-300">
+      <motion.div initial={{opacity:0}} animate={{opacity:1, duration:10}} className=" p-6 rounded-lg shadow-lg transition transform hover:-translate-y-2 duration-300">
         <h3 className="text-2xl font-semibold  mb-4">Step 1: Create Your Campaign</h3>
         <p className="">Tell your story, set a funding goal, and launch your project!</p>
-      </div>
+      </motion.div>
 
       {/* Step 2 */}
       <div className=" p-6 rounded-lg shadow-lg transition transform hover:-translate-y-2 duration-300">
@@ -263,12 +263,12 @@ const Home = () => {
       </div>
     </div>
   </div>
-</section>
+</motion.section>
 
 
 
         {/* another own section-2 */}
-       <section className="py-10">
+        <motion.section style={{ y: 50 }} whileInView={{ y: 0, transition: { duration: 2 } }} className="py-10">
   <div className="container mx-auto px-4 text-center">
     <h2 className="text-4xl font-bold  mb-6">Featured Campaigns</h2>
     <p className="text-lg  mb-12">Support these incredible projects that are making a difference!</p>
@@ -296,7 +296,7 @@ const Home = () => {
       </div>
     </div>
   </div>
-</section>
+</motion.section>
 
       </main>
 
