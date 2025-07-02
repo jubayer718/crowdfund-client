@@ -3,6 +3,7 @@ import { AuthContext } from "../../Components/AuthProvider";
 import Loading from "../../Loading/Loading";
 import { data, useLoaderData } from "react-router-dom";
 import { easeIn, motion } from "motion/react";
+import { Helmet } from "react-helmet";
 
 
 const MyDonation = () => {
@@ -28,6 +29,11 @@ const MyDonation = () => {
 
 
   return (
+    <>
+     <Helmet>
+        <title>My Donation | Crowd funding</title>
+        <meta name="description" content="Welcome to the My donation page of Crowdfunding."/>
+      </Helmet>
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 2 } }} className="my-12">
       <div className="grid grid-cols-1 gap-5 md:grid-cols-3 lg:grid-cols-4">
         {
@@ -48,6 +54,7 @@ const MyDonation = () => {
         }
       </div>
     </motion.div>
+    </>
   );
 };
 

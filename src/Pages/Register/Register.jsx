@@ -6,6 +6,7 @@ import { FaEye } from "react-icons/fa";
 
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../Components/AuthProvider";
+import { Helmet } from "react-helmet";
 
 
 const Register = () => {
@@ -72,6 +73,10 @@ const [showPassword,setShowPassword]=useState(false)
     }
   return (
     <div>
+       <Helmet>
+        <title>Register | Crowd funding</title>
+        <meta name="description" content="Welcome to the Register page of Crowdfunding."/>
+      </Helmet>
       <div className='min-h-screen my-12 flex items-center justify-center '>
       <div className="card bg-base-100 w-full max-w-lg shrink-0  border rounded-lg   p-8">
         <h3 className='font-bold text-2xl text-center'>Register your account</h3>

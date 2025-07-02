@@ -4,6 +4,7 @@ import { Navigate, useFetcher, useLocation, useNavigate } from "react-router-dom
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Components/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
 const navigate=useNavigate()
@@ -41,7 +42,11 @@ const {handleSignIn,setUser,loginWithGoogle}=useContext(AuthContext)
     
   }
   return (
-     <div>
+    <div>
+       <Helmet>
+        <title>Login | Crowd funding</title>
+        <meta name="description" content="Welcome to the Login page of Crowdfunding."/>
+      </Helmet>
      <div className='min-h-screen my-12 flex items-center justify-center '>
       
       <div className="card bg-base-100 w-full max-w-lg border rounded-lg shrink-0  p-10">

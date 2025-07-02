@@ -4,6 +4,7 @@ import Reveal, { Fade } from "react-awesome-reveal";
 import { keyframes } from "@emotion/react";
 import { easeIn, motion } from "motion/react"
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
 
@@ -52,6 +53,10 @@ const Home = () => {
   return (
 
     <>
+      <Helmet>
+        <title>Home | Crowd funding</title>
+        <meta name="description" content="Welcome to the home page of Crowdfunding."/>
+      </Helmet>
 
       <header className="">
 
@@ -153,7 +158,9 @@ const Home = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {campaigns.map((campaign) => (
                 <Reveal keyframes={bounceIn} cascade duration={1000} triggerOnce>
-                  <div
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{opacity:1, y:0, transition:{duration:2}}}
                     key={campaign._id}
                     className="bg-base-100 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
                   >
@@ -178,7 +185,7 @@ const Home = () => {
                         See More
                       </Link>
                     </div>
-                  </div>
+                  </motion.div>
                 </Reveal>
               ))}
             </div>

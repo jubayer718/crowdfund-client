@@ -3,6 +3,7 @@ import { AuthContext } from '../../Components/AuthProvider';
 import Loading from '../../Loading/Loading';
 import { data } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const AddCampaign = () => {
   const { loading, user } = useContext(AuthContext);
@@ -70,6 +71,12 @@ const AddCampaign = () => {
   };
 
   return (
+    <>
+     <Helmet>
+        <title>Add Campaign | Crowdfunding</title>
+        <meta name="description" content="Welcome to the Add campaign page of Crowdfunding"/>
+      </Helmet>
+      
     <div className=" my-12 max-w-4xl mx-auto p-8 bg-base-200 rounded-lg shadow-lg">
       <h2 className="text-3xl font-bold text-center mb-6">Add New Campaign</h2>
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -222,6 +229,7 @@ const AddCampaign = () => {
         </div>
       </form>
     </div>
+    </>
   );
 };
 

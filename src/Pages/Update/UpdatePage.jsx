@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { AuthContext } from '../../Components/AuthProvider';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const UpdatePage = () => {
   const { user } = useContext(AuthContext)
@@ -58,7 +59,13 @@ const UpdatePage = () => {
   };
   return (
 
-     <div className="max-w-4xl mx-auto p-8 bg-base-200 rounded-lg shadow-lg my-12">
+    <>
+       <Helmet>
+        <title>Update | Crowd funding</title>
+        <meta name="description" content="Welcome to the Update page of Crowdfunding."/>
+      </Helmet>
+    
+    <div className="max-w-4xl mx-auto p-8 bg-base-200 rounded-lg shadow-lg my-12">
       <h2 className="text-3xl font-bold text-center mb-6">Update Campaign</h2>
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Thumbnail */}
@@ -202,7 +209,8 @@ const UpdatePage = () => {
           </button>
         </div>
       </form>
-    </div>
+      </div>
+    </>
 
   );
 };

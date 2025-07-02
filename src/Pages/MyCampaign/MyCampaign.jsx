@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Loading from '../../Loading/Loading';
 import { easeIn, motion } from 'motion/react';
+import { Helmet } from 'react-helmet';
 
 const MyCampaign = () => {
   
@@ -72,7 +73,12 @@ Swal.fire({
    }
 
   return (
-    <motion.div initial={{opacity:0}} animate={{opacity:1, transition:{duration:2}}} className="p-4 my-12">
+    <>
+       <Helmet>
+        <title>My campaign | Crowd funding</title>
+        <meta name="description" content="Welcome to the My campaign page of Crowdfunding."/>
+      </Helmet>
+     <motion.div initial={{opacity:0}} animate={{opacity:1, transition:{duration:2}}} className="p-4 my-12">
   <h1 className="text-3xl font-bold text-center  mb-4">My Campaigns</h1>
 
   {loading?<Loading/>:campaigns.length > 0 ? (
@@ -105,7 +111,7 @@ Swal.fire({
       ) :(
     `${campaigns.length < 0 && <p className="text-center text-lg text-gray-600 mt-4">No campaigns found.</p>}`
   )}
-</motion.div>
+</motion.div></>
 
   );
 };
